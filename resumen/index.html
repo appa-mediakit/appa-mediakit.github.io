@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610161847">
+<link rel="stylesheet" href="styles.css?v=202610161854">
 </head>
 <body class="short">
 
@@ -162,28 +162,26 @@
 </section>
 
 <!-- CIERRE -->
-<section class="cta" id="contacto">
-  <div class="wrap cta-in">
-    <div class="badge-spin" aria-hidden="true">
-      <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><circle cx="100" cy="100" r="96" fill="#fff"/><text><textPath href="#circ">DALE LA VUELTA · AL SHOPPING ·</textPath></text></svg>
-      <span>!</span>
-    </div>
-    <h2>¿Querés conocer todo<br><span class="light">el ecosistema</span> <img class="inline-logo cta-inline" src="assets/img/logo-appa-mono-dark.png" alt="¡appa!">?</h2>
-    <p>Hay mucho más para potenciar tu marca dentro de los shoppings.</p>
-    <ul class="eco-feat" aria-label="Productos del ecosistema ¡appa!">
-      <li><span class="ef-ic"><img src="assets/icons/gift.svg" alt=""></span>¡appa! GIFT</li>
-      <li><span class="ef-ic"><img src="assets/icons/doc.svg" alt=""></span>Encuestas con IA</li>
-      <li><span class="ef-ic"><img src="assets/icons/user.svg" alt=""></span>Segmentación</li>
-      <li><span class="ef-ic"><img src="assets/icons/tag.svg" alt=""></span>Recompra</li>
-      <li><span class="ef-ic"><img src="assets/icons/ticket.svg" alt=""></span>Eventos</li>
-      <li><span class="ef-ic"><img src="assets/icons/car.svg" alt=""></span>Parking</li>
-      <li><span class="ef-ic"><img src="assets/icons/bell.svg" alt=""></span>Sorteos</li>
-      <li><span class="ef-ic"><img src="assets/icons/thumb.svg" alt=""></span>¡appa! Corporate</li>
-    </ul>
-    <a href="./#ecosistema" class="btn btn-dark btn-xl">Descubrí el ecosistema completo <span class="arr">→</span></a>
-    <img src="assets/img/logo-appa-white.png" alt="¡appa!" class="cta-logo">
+<section class="end" id="contacto">
+  <div class="end-glow" aria-hidden="true"></div>
+  <div class="wrap end-in">
+    <div class="spin" aria-label="Servicios del ecosistema ¡appa!"><ul id="spinList"><li><i><img src="assets/icons/gift.svg" alt=""></i>¡appa! GIFT</li><li><i><img src="assets/icons/doc.svg" alt=""></i>Encuestas con IA</li><li><i><img src="assets/icons/user.svg" alt=""></i>Segmentación</li><li><i><img src="assets/icons/tag.svg" alt=""></i>Recompra</li><li><i><img src="assets/icons/ticket.svg" alt=""></i>Eventos</li><li><i><img src="assets/icons/car.svg" alt=""></i>Parking</li><li><i><img src="assets/icons/bell.svg" alt=""></i>Sorteos</li><li><i><img src="assets/icons/thumb.svg" alt=""></i>¡appa! Corporate</li></ul></div>
+    <h2>Esto es solo <span class="g">una parte.</span></h2>
+    <a href="./#ecosistema" class="btn-glow"><span>Descubrí el ecosistema ¡appa!</span><b>→</b></a>
   </div>
 </section>
+
+<script>
+(() => {
+  const ul = document.getElementById('spinList'); if (!ul) return;
+  const n = ul.children.length; ul.appendChild(ul.children[0].cloneNode(true));
+  let i = 0;
+  setInterval(() => {
+    i++; ul.style.transition = 'transform .6s cubic-bezier(.7,0,.2,1)'; ul.style.transform = `translateY(${-i * 100 / (n + 1)}%)`;
+    if (i === n) setTimeout(() => { ul.style.transition = 'none'; ul.style.transform = 'translateY(0)'; i = 0; }, 650);
+  }, 1900);
+})();
+</script>
 
 <footer class="foot">
   <div class="wrap foot-in">
@@ -193,6 +191,6 @@
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610161847"></script>
+<script src="app.js?v=202610161854"></script>
 </body>
 </html>
