@@ -36,7 +36,7 @@
       desc: 'Aparece en la pantalla “¡Gracias por tu visita!”, cuando el usuario termina de pagar su ticket de estacionamiento. Aprovecha un alto tráfico de usuarios y genera una alta tasa de conversión.',
       kpis: [] },
     { key: 'push', tab: 'Notificación Push', name: 'Notificación Push', where: 'Fuera de la app · pantalla del celular', w: 0, h: 0, text: true,
-      desc: 'Envíos a bases micro-segmentadas para que cada usuario reciba solo lo que le interesa. Tienen mejor performance las que desafían al usuario.',
+      desc: 'Llega directo a la pantalla del celular, aunque el usuario no tenga la app abierta. Envíos a bases micro-segmentadas: hasta 30 caracteres de título y 90 de mensaje.',
       kpis: [['2,2%', 'tasa de click'], ['450k → 16k', 'segmentación a medida']] },
     { key: 'mail', tab: 'Mailing', name: 'Mailing', where: 'Fuera de la app · casilla de correo', w: 660, h: 0,
       demo: '', brand: 'Lidherma',
@@ -56,7 +56,7 @@
   // Textos reales de notificaciones enviadas por ¡appa!
   const PUSH_DEMO = {
     t: '¿Te tiro un tip?',
-    b: 'Hoy es miércoles de Super Miércoles Santander 🥳 ¡Corré a tu shopping favorito y aprovechá hasta 35% de ahorro y cuotas sin interés!'
+    b: 'Super Miércoles Santander 🥳 Corré a tu shopping y aprovechá hasta 35% de ahorro.'
   };
 
   const state = { pieces: {}, fmt: 'popup', guide: true, pushT: '', pushB: '' };
@@ -103,6 +103,8 @@
   const shot = (img, slots) => `<div class="shot"><img src="assets/shots/${img}" alt="" class="shot-img">${slots}</div>`;
   const HOME_MAIN = 'left:5.25%;top:15.5%;width:88.75%;height:19.7%';
 
+  const notifCard = (t, b, when, cls = '') => `<div class="notif ${cls}"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>${when}</span></div><b>${esc(t)}</b><p>${esc(b)}</p></div></div>`;
+
   const SCREENS = {
     home(hl) {
       return `<div class="scr scr-white">${shot('home.jpg',
@@ -142,8 +144,8 @@
       return `<div class="scr"><div class="lock">${SB(true, '')}
         <div class="lock-date">${esc(date.charAt(0).toUpperCase() + date.slice(1))}</div>
         <div class="lock-time">${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</div>
-        <div class="notif"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>ahora</span></div><b>${esc(t)}</b><p>${esc(b)}</p></div></div>
-        <div class="notif second"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>hace 2 h</span></div><b>Disfrutá de un 10% OFF en Distrito Bs As</b><p>El descuento está disponible en los locales de Alto Comahue, DOT y Abasto.</p></div></div>
+        ${notifCard(t, b, 'ahora')}
+        <div class="notif second"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>hace 2 h</span></div><b>10% OFF en Distrito Bs As</b><p>El descuento está disponible en los locales de Alto Comahue, DOT y Abasto.</p></div></div>
         <div class="lock-btm"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 2h6v5l-2 3v12h-2V10L9 7z"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l2-3h4l2 3"/></svg></i></div>
         </div>${HI}</div>`;
     },
@@ -165,12 +167,11 @@
     let extra = '';
     if (f.key === 'popup') extra = `<div class="fmt-warn">${f.warn}</div>
       <label class="toggle"><input type="checkbox" id="guideChk" ${state.guide ? 'checked' : ''}> Mostrar zona reservada del botón</label>`;
-    if (f.key === 'push') extra = `<div class="push-edit"><label>Escribí tu notificación</label><input id="pushT" maxlength="50" placeholder="Título: ${esc(PUSH_DEMO.t)}" value="${esc(state.pushT)}">
-      <input id="pushB" maxlength="140" placeholder="Mensaje" value="${esc(state.pushB)}"></div>`;
+    if (f.key === 'push') extra = `<div class="notif-zoom"><small>Vista ampliada</small>${notifCard(state.pushT || PUSH_DEMO.t, state.pushB || PUSH_DEMO.b, 'ahora', 'big')}</div>`;
     const mine = !!state.pieces[f.key];
     const ex = f.text ? '<span class="ex-tag">Notificación real de ¡appa!</span>' : `<span class="ex-tag ${mine ? 'ex-mine' : ''}">${mine ? 'Vista previa con tu pieza' : `Campaña real · ${esc(f.brand)}`}</span>`;
     $('#fmtInfo').innerHTML = `${ex}<span class="fmt-where">${f.where}</span><h3>${f.name}</h3>${f.comm ? `<span class="fmt-comm">${f.comm}</span>` : ''}<p>${f.desc}</p>
-      ${f.text ? '<div class="fmt-size">Texto <small>título + mensaje</small></div>' : `<div class="fmt-size">${sizeTxt(f)} <small>medida de la pieza</small></div>`}
+      ${f.text ? '<div class="fmt-size">30 + 90 <small>caracteres de título y mensaje</small></div>' : `<div class="fmt-size">${sizeTxt(f)} <small>medida de la pieza</small></div>`}
       ${kp ? `<div class="fmt-kpis">${kp}</div>` : ''}${extra}`;
 
     const up = $('#inPiece').closest('.field');
@@ -181,8 +182,8 @@
     $('#clearPiece').hidden = !mine;
 
     const g = $('#guideChk'); if (g) g.onchange = () => { state.guide = g.checked; renderPhone(); };
-    const pt = $('#pushT'), pb = $('#pushB');
-    if (pt) { pt.oninput = () => { state.pushT = pt.value; renderPhone(); }; pb.oninput = () => { state.pushB = pb.value; renderPhone(); }; }
+    $('#pushField').hidden = !f.text;
+    $('#step2T').textContent = f.text ? 'Escribí tu notificación' : 'Probá con tu pieza';
   }
 
   function renderTabs() {
@@ -217,6 +218,14 @@
       r.readAsDataURL(file);
     };
     $('#clearPiece').onclick = () => { delete state.pieces[state.fmt]; renderInfo(); renderPhone(); };
+    const pt = $('#pushT'), pb = $('#pushB');
+    const onPush = () => {
+      state.pushT = pt.value; state.pushB = pb.value;
+      $('#cntT').textContent = `${pt.value.length}/30`; $('#cntB').textContent = `${pb.value.length}/90`;
+      renderPhone(); const z = $('.notif-zoom'); if (z) z.innerHTML = `<small>Vista ampliada</small>${notifCard(state.pushT || PUSH_DEMO.t, state.pushB || PUSH_DEMO.b, 'ahora', 'big')}`;
+    };
+    pt.oninput = pb.oninput = onPush;
+    $('#clearPush').onclick = () => { pt.value = pb.value = ''; onPush(); };
   }
 
   // ---------- medidas ----------
@@ -234,6 +243,7 @@
       const f = fmtBy(k), v = sizeTxt(f), note = NOTES[k] ? `<small>${NOTES[k]}</small>` : '';
       return `<div class="spec">${k === 'mail' ? shapeBox(660, 1100) : shapeBox(f.w, f.h)}<div class="spec-n">${label}${note}</div><button class="spec-v" data-copy="${v}">${v}</button></div>`;
     });
+    rows.push(`<div class="spec">${shapeBox(40, 24)}<div class="spec-n">Notificación Push<small>Solo texto</small></div><span class="spec-v na">Título 30 · Mensaje 90 caracteres</span></div>`);
     $('#specAds').innerHTML = rows.join('');
     $('#specSocial').innerHTML = SOCIAL.map(([n, w, h]) => `<div class="spec">${shapeBox(w, h)}<div class="spec-n">${n}</div><button class="spec-v" data-copy="${w} x ${h} px">${w} × ${h} px</button></div>`).join('');
     document.addEventListener('click', e => {

@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202610161857">
+<link rel="stylesheet" href="styles.css?v=202610162002">
 </head>
 <body>
 
@@ -224,11 +224,19 @@
         <p class="panel-p">Cada celular muestra una campaña real que ya corrió en ¡appa!</p>
         <div class="fmt-tabs fmt-tabs-v" role="tablist" id="fmtTabs"></div>
         <span class="step">2</span>
-        <h4 class="panel-t">Probá con tu pieza</h4>
+        <h4 class="panel-t" id="step2T">Probá con tu pieza</h4>
         <div class="field">
           <label class="upload upload-strong" for="inPiece"><span id="pieceLbl">Subir mi pieza</span><input id="inPiece" type="file" accept="image/*"></label>
           <p class="hint" id="pieceHint">Medida ideal: —</p>
           <button class="link-btn" id="clearPiece" type="button" hidden>Volver al ejemplo real</button>
+        </div>
+        <div class="field push-field" id="pushField" hidden>
+          <label for="pushT">Título <small class="cnt" id="cntT">0/30</small></label>
+          <input id="pushT" type="text" maxlength="30" placeholder="¿Te tiro un tip?">
+          <label for="pushB">Mensaje <small class="cnt" id="cntB">0/90</small></label>
+          <textarea id="pushB" maxlength="90" rows="3" placeholder="Super Miércoles Santander 🥳 Corré a tu shopping y aprovechá hasta 35% de ahorro."></textarea>
+          <p class="hint">Hasta <b>30</b> caracteres en el título y <b>90</b> en el mensaje.</p>
+          <button class="link-btn" id="clearPush" type="button">Volver al ejemplo real</button>
         </div>
         <p class="privacy">Tus archivos no se suben a ningún servidor: la vista previa se genera en tu propio dispositivo.</p>
       </aside>
@@ -425,6 +433,6 @@
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=202610161857"></script>
+<script src="app.js?v=202610162002"></script>
 </body>
 </html>

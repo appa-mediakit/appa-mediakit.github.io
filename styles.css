@@ -737,3 +737,19 @@ a.eco-i{color:inherit}
 @keyframes spinb{to{--a:360deg}}
 @media (max-width:560px){.end{padding:100px 0 110px}.btn-glow{font-size:16px;padding:16px 22px}}
 @media (prefers-reduced-motion:reduce){.end-glow,.btn-glow::before{animation:none}}
+
+/* push en el simulador */
+.push-field label{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px}
+.push-field .cnt{font-weight:600;color:var(--green)}
+.push-field input,.push-field textarea{width:100%;background:#0d1715;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:11px 13px;color:#fff;outline:none;font:inherit;font-size:14px;resize:none;margin-bottom:6px}
+.push-field input:focus,.push-field textarea:focus{border-color:var(--green)}
+.notif p{-webkit-line-clamp:4}
+.notif>.nt>b{font-size:11.5px}
+.notif-zoom{margin-top:18px}
+.notif-zoom small{display:block;font-size:12px;color:#9fb0ab;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase}
+.notif.big{position:relative;left:auto;right:auto;top:auto;max-width:420px;padding:16px 18px;border-radius:24px;gap:14px;background:rgba(245,247,246,.92);animation:none}
+.notif.big img{width:44px;height:44px;border-radius:12px}
+.notif.big .nh,.notif.big .nh b{font-size:12.5px}
+.notif.big>.nt>b{font-size:16px;margin-bottom:2px}
+.notif.big p{font-size:14.5px;-webkit-line-clamp:unset;display:block}
+.spec-v.na{white-space:normal;text-align:right}
