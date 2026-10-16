@@ -683,3 +683,17 @@ a.eco-i{color:inherit}
 .sec-enc .ef:hover{border-color:rgba(111,221,242,.55)}
 .sec-enc .enc-flow span{background:var(--sky)}
 .enc-chip-a{bottom:12%}
+
+/* ===== versión corta (resumen) ===== */
+.hero-short h1{display:flex;align-items:center;gap:.25em;font-size:clamp(56px,9vw,120px)}
+.hero-logo{height:.9em;width:auto}
+.hero-short h1 span{color:var(--green)}
+.hero-short .hero-lead{font-size:clamp(19px,2vw,24px);max-width:520px}
+.que{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.que .sec-head{margin-bottom:0}
+.stats-3{grid-template-columns:1fr}
+.stats-3 .stat{min-height:auto;padding:22px 24px;flex-direction:row;align-items:baseline;justify-content:space-between;gap:16px}
+.stats-3 .stat span{margin:0;text-align:right}
+.btn-dark{background:var(--ink);color:#fff;margin-top:28px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.btn-dark:hover{background:#000}
+@media (max-width:860px){.que{grid-template-columns:1fr}}
