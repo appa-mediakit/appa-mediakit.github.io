@@ -9,16 +9,16 @@
     { key: 'popup', tab: 'Pop-up', name: 'Banner Pop-up', where: 'In-app · al abrir la app', w: 960, h: 1398,
       demo: 'assets/creas/levis-popup.jpg', brand: "Levi's",
       desc: 'Aparece al iniciar sesión y se ve apenas el usuario entra a ¡appa! Se puede segmentar por shopping y por tipo de público.',
-      kpis: [['13.000', 'usuarios por día en promedio'], ['0,81%', 'CTR promedio'], ['1,5%', 'CTR viernes y sábados']],
+      kpis: [['12%', 'CTR: de cada 100 impresiones, 12 terminan en clic'], ['1,23', 'exposiciones promedio por usuario']],
       warn: 'Dejá libres los <b>últimos 240 px</b> de alto: ahí la app ubica su botón de acción.' },
     { key: 'home1', tab: 'Home Principal', name: 'Banner Home Principal', where: 'In-app · inicio', w: 1240, h: 598,
-      demo: '', brand: 'Under Armour', comm: 'Uso compartido: lo comercializan ¡appa! y los centros comerciales',
+      demo: '', brand: 'New Era', comm: 'Uso compartido: lo comercializan ¡appa! y los centros comerciales',
       desc: 'Es el primer impacto visual al abrir la aplicación, ideal para comunicaciones de alcance masivo. Segmentable por shopping y tipo de público.',
-      kpis: [['13.000', 'usuarios por día en promedio'], ['0,81%', 'CTR promedio'], ['1,5%', 'CTR viernes y sábados']] },
+      kpis: [['68.100', 'vistas mensuales promedio por banner']] },
     { key: 'home2', tab: 'Home Secundario', name: 'Banner Home Secundario', where: 'In-app · inicio (ex Home Spot)', w: 750, h: 174,
       demo: '', brand: '¡appa!', comm: 'Comercializado de forma exclusiva por ¡appa!',
       desc: 'Un espacio estratégico dentro del inicio de la app para diversificar la visibilidad de tu marca con un mensaje directo.',
-      kpis: [['13.000', 'usuarios ingresan a la app por día en promedio']] },
+      kpis: [['68.100', 'vistas mensuales promedio por banner']] },
     { key: 'mall', tab: 'Perfil Shopping', name: 'Banner Perfil Shopping Principal', where: 'In-app · perfil de cada shopping', w: 686, h: 196,
       demo: '', brand: 'Abasto Shopping', comm: 'Uso mayoritario de los centros comerciales',
       desc: 'Espacio en el perfil de cada shopping para destacar propuestas de valor, promociones exclusivas de sus locales o eventos en el lugar. Se segmenta según el público a impactar.',
@@ -34,14 +34,14 @@
     { key: 'parking', tab: 'Touch Point', name: 'Banner Parking · Touch Point', where: 'In-app · salida del estacionamiento', w: 694, h: 870,
       demo: 'assets/creas/lidherma.jpg', brand: 'Lidherma', comm: 'Comercializado de forma exclusiva por ¡appa!',
       desc: 'Aparece en la pantalla “¡Gracias por tu visita!”, cuando el usuario termina de pagar su ticket de estacionamiento. Aprovecha un alto tráfico de usuarios y genera una alta tasa de conversión.',
-      kpis: [] },
+      kpis: [['~322.000', 'impresiones potenciales por mes'], ['~10.700', 'impresiones por día'], ['Todos', 'los shoppings operados con ¡appa!']] },
     { key: 'push', tab: 'Notificación Push', name: 'Notificación Push', where: 'Fuera de la app · pantalla del celular', w: 0, h: 0, text: true,
       desc: 'Llega directo a la pantalla del celular, aunque el usuario no tenga la app abierta. Envíos a bases micro-segmentadas: hasta 30 caracteres de título y 90 de mensaje.',
-      kpis: [['2,2%', 'tasa de click'], ['450k → 16k', 'segmentación a medida']] },
+      kpis: [['80%', 'tasa de entrega a los dispositivos'], ['450k → 16k', 'segmentación a medida']] },
     { key: 'mail', tab: 'Mailing', name: 'Mailing', where: 'Fuera de la app · casilla de correo', w: 660, h: 0,
       demo: '', brand: 'Lidherma',
       desc: 'Envíos a usuarios de ¡appa! micro-segmentados por sus últimas transacciones. Ej.: usuarios que compraron en el shopping DOT en los últimos 3 meses.',
-      kpis: [['30%', 'open rate promedio (últimos 6 meses)']] }
+      kpis: [['6,89%', 'CTOR: de quienes abren el mail, hacen clic']] }
   ];
   const SOCIAL = [
     ['Instagram · Historia', 1080, 1920], ['Instagram · Posteo cuadrado', 1080, 1080], ['Instagram · Posteo vertical', 1080, 1350],
@@ -101,19 +101,23 @@
 
   // Captura real de la app con la pieza ubicada en su lugar exacto (posiciones en % de la captura)
   const shot = (img, slots) => `<div class="shot"><img src="assets/shots/${img}" alt="" class="shot-img">${slots}</div>`;
-  const HOME_MAIN = 'left:5.25%;top:15.5%;width:88.75%;height:19.7%';
+  const HOME_MAIN = 'left:5.03%;top:30.71%;width:89.95%;height:21.44%';
+  // barra de estado iPhone uniforme sobre cada captura (tapa la barra original)
+  const BAR = (bg, light = false) => `<div class="sbband" style="background:${bg}"></div>${SB(light, '9:41')}`;
+  const HOLA = '<div class="hola" style="top:1.88%;height:2.28%"><span>¡Hola!</span></div>';
 
   const notifCard = (t, b, when, cls = '') => `<div class="notif ${cls}"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>${when}</span></div><b>${esc(t)}</b><p>${esc(b)}</p></div></div>`;
 
   const SCREENS = {
     home(hl) {
-      return `<div class="scr scr-white">${shot('home.jpg',
-        slot('home1', HOME_MAIN, 'r8' + (hl === 'home1' ? ' hl' : '')) +
-        slot('home2', 'left:5.25%;top:74.9%;width:88.75%;height:9.3%', 'r8' + (hl === 'home2' ? ' hl' : '')))}${HI}</div>`;
+      if (hl === 'home2') return `<div class="scr scr-white">${shot('home-old.jpg',
+        slot('home1', 'left:5.25%;top:9.80%;width:88.75%;height:21.03%', 'r8') +
+        slot('home2', 'left:5.25%;top:73.21%;width:88.75%;height:9.93%', 'r8 hl'))}${BAR('#fff')}${HI}</div>`;
+      return `<div class="scr scr-white">${shot('home.jpg', HOLA + slot('home1', HOME_MAIN, 'r12' + (hl === 'home1' ? ' hl' : '')))}${BAR('#fff')}${HI}</div>`;
     },
     popup() {
       const mine = !!state.pieces.popup;
-      return `<div class="scr scr-white">${shot('home.jpg', slot('home1', HOME_MAIN, 'r8'))}
+      return `<div class="scr scr-white">${shot('home.jpg', HOLA + slot('home1', HOME_MAIN, 'r12'))}${BAR('#fff')}
         <div class="dim"><div class="modal">
           ${slot('popup', 'position:relative;left:auto;top:auto;width:100%;aspect-ratio:960/1398', 'r0')}
           ${mine ? '<span class="modal-x">✕</span>' : ''}
@@ -121,13 +125,13 @@
         </div></div>${HI}</div>`;
     },
     mall() {
-      return `<div class="scr scr-white">${shot('perfil.jpg', slot('mall', 'left:5.6%;top:14.4%;width:88.8%;height:12.5%', 'r6 hl'))}${HI}</div>`;
+      return `<div class="scr scr-white">${shot('perfil.jpg', slot('mall', 'left:5.6%;top:12.06%;width:88.8%;height:12.84%', 'r6 hl'))}${BAR('#613089', true)}${HI}</div>`;
     },
     benef() {
-      return `<div class="scr scr-white">${shot('beneficios.jpg', slot('benef', 'left:3.5%;top:10.7%;width:87.2%;height:20.4%', 'r10 hl'))}${tabbar('ben')}${HI}</div>`;
+      return `<div class="scr scr-white">${shot('beneficios.jpg', slot('benef', 'left:3.5%;top:5.84%;width:87.2%;height:21.51%', 'r10 hl'))}${BAR('#fff')}${tabbar('ben')}${HI}</div>`;
     },
     desc() {
-      return `<div class="scr scr-white">${shot('descuentos.jpg', slot('desc', 'left:5.1%;top:12.75%;width:89.6%;height:24.5%', 'r10 hl'))}${HI}</div>`;
+      return `<div class="scr scr-white">${shot('descuentos.jpg', slot('desc', 'left:5.1%;top:9.13%;width:89.6%;height:25.52%', 'r10 hl'))}${BAR('#fff')}${HI}</div>`;
     },
     parking() {
       return `<div class="scr"><div class="tp">${SB(false, '9:41')}
@@ -141,7 +145,7 @@
       const d = new Date();
       const date = d.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long' });
       const t = state.pushT || PUSH_DEMO.t, b = state.pushB || PUSH_DEMO.b;
-      return `<div class="scr"><div class="lock">${SB(true, '')}
+      return `<div class="scr"><div class="lock">${SB(true, '9:41')}
         <div class="lock-date">${esc(date.charAt(0).toUpperCase() + date.slice(1))}</div>
         <div class="lock-time">${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}</div>
         ${notifCard(t, b, 'ahora')}
@@ -150,7 +154,7 @@
         </div>${HI}</div>`;
     },
     mail() {
-      return `<div class="scr">${shot('mail.jpg', slot('mail', 'left:6.7%;top:37.2%;width:86.7%;height:48.5%', 'mail-slot'))}${SB(false, '3:00')}${HI}</div>`;
+      return `<div class="scr">${shot('mail.jpg', slot('mail', 'left:6.7%;top:33.94%;width:86.7%;height:51.02%', 'mail-slot'))}${BAR('rgb(235,238,243)')}${HI}</div>`;
     }
   };
   const screenFor = { popup: 'popup', home1: 'home', home2: 'home', mall: 'mall', benef: 'benef', desc: 'desc', parking: 'parking', push: 'push', mail: 'mail' };
