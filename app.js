@@ -12,23 +12,23 @@
       kpis: [['12%', 'CTR: de cada 100 impresiones, 12 terminan en clic'], ['1,23', 'exposiciones promedio por usuario']],
       warn: 'Dejá libres los <b>últimos 240 px</b> de alto: ahí la app ubica su botón de acción.' },
     { key: 'home1', tab: 'Home Principal', name: 'Banner Home Principal', where: 'In-app · inicio', w: 1240, h: 598,
-      demo: '', brand: 'New Era', comm: 'Uso compartido: lo comercializan ¡appa! y los centros comerciales',
+      demo: 'assets/creas/newera.jpg', brand: 'New Era', comm: 'Uso compartido: lo comercializan ¡appa! y los centros comerciales',
       desc: 'Es el primer impacto visual al abrir la aplicación, ideal para comunicaciones de alcance masivo. Segmentable por shopping y tipo de público.',
       kpis: [['68.100', 'vistas mensuales promedio por banner']] },
     { key: 'home2', tab: 'Home Secundario', name: 'Banner Home Secundario', where: 'In-app · inicio (ex Home Spot)', w: 750, h: 174,
-      demo: '', brand: '¡appa!', comm: 'Comercializado de forma exclusiva por ¡appa!',
+      demo: 'assets/creas/nueva-funcion.jpg', brand: '¡appa!', fit: 'contain', comm: 'Comercializado de forma exclusiva por ¡appa!',
       desc: 'Un espacio estratégico dentro del inicio de la app para diversificar la visibilidad de tu marca con un mensaje directo.',
       kpis: [['68.100', 'vistas mensuales promedio por banner']] },
     { key: 'mall', tab: 'Perfil Shopping', name: 'Banner Perfil Shopping Principal', where: 'In-app · perfil de cada shopping', w: 686, h: 196,
-      demo: '', brand: 'Abasto Shopping', comm: 'Uso mayoritario de los centros comerciales',
+      demo: 'assets/creas/musica.jpg', brand: 'Abasto Shopping', comm: 'Uso mayoritario de los centros comerciales',
       desc: 'Espacio en el perfil de cada shopping para destacar propuestas de valor, promociones exclusivas de sus locales o eventos en el lugar. Se segmenta según el público a impactar.',
       kpis: [['17', 'shoppings disponibles'], ['+1.300', 'marcas presentes']] },
     { key: 'benef', tab: 'Sección Beneficios', name: 'Banner Sección Beneficios', where: 'In-app · sección Beneficios', w: 1200, h: 610,
-      demo: '', brand: 'BYD', comm: 'Comercializado de forma exclusiva por ¡appa!',
+      demo: 'assets/creas/byd.jpg', brand: 'BYD', comm: 'Comercializado de forma exclusiva por ¡appa!',
       desc: 'Altamente recomendado para promocionar de forma segmentada programas de fidelidad y pauta segmentada, asegurando que llegue al público objetivo.',
       kpis: [['8 de 10', 'usuarios eligen ver promociones con anticipación']] },
     { key: 'desc', tab: 'Sección Descuentos', name: 'Banner Sección Descuentos', where: 'In-app · sección Descuentos', w: 1200, h: 610,
-      demo: '', brand: 'Xterra', comm: 'Comercializado de forma exclusiva por ¡appa!',
+      demo: 'assets/creas/xterra.jpg', brand: 'Xterra', comm: 'Comercializado de forma exclusiva por ¡appa!',
       desc: 'Tu marca arriba de todo en el listado de descuentos con ¡appa! Altamente recomendado para pauta segmentada.',
       kpis: [['+130%', 'gastan los usuarios con ¡appa!']] },
     { key: 'parking', tab: 'Touch Point', name: 'Banner Parking · Touch Point', where: 'In-app · salida del estacionamiento', w: 694, h: 870,
@@ -39,7 +39,7 @@
       desc: 'Llega directo a la pantalla del celular, aunque el usuario no tenga la app abierta. Envíos a bases micro-segmentadas: hasta 30 caracteres de título y 90 de mensaje.',
       kpis: [['80%', 'tasa de entrega a los dispositivos'], ['450k → 16k', 'segmentación a medida']] },
     { key: 'mail', tab: 'Mailing', name: 'Mailing', where: 'Fuera de la app · casilla de correo', w: 660, h: 0,
-      demo: '', brand: 'Lidherma',
+      demo: 'assets/creas/lidherma.jpg', brand: 'Lidherma',
       desc: 'Envíos a usuarios de ¡appa! micro-segmentados por sus últimas transacciones. Ej.: usuarios que compraron en el shopping DOT en los últimos 3 meses.',
       kpis: [['6,89%', 'CTOR: de quienes abren el mail, hacen clic']] }
   ];
@@ -79,7 +79,7 @@
   }
 
   // ---------- piezas de UI ----------
-  const SB = (light = false, time = '17:38') => `<div class="sb ${light ? 'sb-light' : ''}"><span>${time}</span><span class="sb-ic">
+  const SB = (light = false, time = '9:41') => `<div class="sb ${light ? 'sb-light' : ''}"><span>${time}</span><span class="sb-ic">
       <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
       <svg viewBox="0 0 16 12"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.9c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 4.2 6.8 6.8 0 0 0 3.3 6l1.3 1.4c.9-.8 2.1-1.3 3.4-1.3zM8 10l2-2.1a2.8 2.8 0 0 0-4 0z"/></svg>
       <span class="batt"><i></i></span></span></div>`;
@@ -100,24 +100,40 @@
   const HI = '<div class="home-ind"></div>';
 
   // Captura real de la app con la pieza ubicada en su lugar exacto (posiciones en % de la captura)
-  const shot = (img, slots) => `<div class="shot"><img src="assets/shots/${img}" alt="" class="shot-img">${slots}</div>`;
-  const HOME_MAIN = 'left:5.03%;top:30.71%;width:89.95%;height:21.44%';
-  // barra de estado iPhone uniforme sobre cada captura (tapa la barra original)
-  const BAR = (bg, light = false) => `<div class="sbband" style="background:${bg}"></div>${SB(light, '9:41')}`;
-  const HOLA = '<div class="hola" style="top:1.88%;height:2.28%"><span>¡Hola!</span></div>';
+  // ---------- pantallas de la app, construidas en código (estilo iPhone) ----------
+  const R = (k, ratio, cls = '', st = '') => slot(k, `position:relative;left:auto;top:auto;width:100%;aspect-ratio:${ratio};${st}`, cls);
+  const svg = {
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',
+    bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15z"/><path d="M10 21h4"/></svg>',
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="#0DD6A8" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg>',
+    chev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>',
+    down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" fill="#E53935"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.4 5 6.8 5c2 0 3.6 1.1 5.2 3 1.6-1.9 3.2-3 5.2-3 3.4 0 5.8 3.3 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>',
+    ret: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14l-5-5 5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-2"/></svg>',
+    fwd: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14l5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h2"/></svg>'
+  };
+  const homeBody = (hlKey) => `
+      <div class="hm-top"><img class="hm-av" src="assets/img/app-icon.png" alt=""><div class="hm-hi"><b>¡Hola!</b><img src="assets/img/logo-appa.png" alt="¡appa!"></div><span class="hm-ic">${svg.search}</span><span class="hm-ic hm-bell">${svg.bell}<i>3</i></span></div>
+      <div class="hm-loc">${svg.pin}<span>Elegí tu ubicación</span>${svg.down}</div>
+      <div class="hm-tiles"><div><img src="assets/ui/ic-gift.png" alt="">¡appa! GIFT</div><div><img src="assets/ui/ic-shop.png" alt="">Shoppings</div><div><img src="assets/ui/ic-park.png" alt="">Parking</div></div>
+      <div class="hm-ban">${R('home1', '1240/598', 'r-ui' + (hlKey === 'home1' ? ' hl' : ''))}</div>
+      <div class="hm-club"><div class="hm-cl"><img src="assets/ui/apcrew.png" alt=""><div><small>AP CREW</small><b>Nivel 1</b></div></div><div class="hm-bar"><i></i></div><div class="hm-lv"><span>Nivel 1</span><span>Nivel 2</span></div><div class="hm-pts"><span>Puntos</span><b>6</b></div></div>
+      <div class="hm-mini"><div><img src="assets/ui/ic-fact.png" alt=""><span>Cargar facturas</span>${svg.chev}</div><div><img src="assets/ui/ic-food.png" alt=""><span>Pedir comida</span>${svg.chev}</div></div>
+      <div class="hm-ban2">${R('home2', '750/174', 'r-ui2' + (hlKey === 'home2' ? ' hl' : ''))}</div>
+      <div class="ui-sec"><b>Descuentos con ¡appa!</b><span>Ver más ›</span></div>
+      ${dCards([['brioche', 'Brioche Dorée', '30 % OFF', 'Abasto Shopping', false], ['yagmour', 'Yagmour', '15 % OFF', 'Distrito Arcos', true]])}`;
 
   const notifCard = (t, b, when, cls = '') => `<div class="notif ${cls}"><img src="assets/img/app-icon.png" alt=""><div class="nt"><div class="nh"><b>¡appa!</b><span>${when}</span></div><b>${esc(t)}</b><p>${esc(b)}</p></div></div>`;
+  const dCards = (list) => `<div class="ml-cards hm-cards">${list.map(c => `<div class="ml-card"><img src="assets/ui/${c[0]}.png" alt=""><small>${c[1]}</small><b>${c[2]}</b><em>${c[3]}</em>${c[4] ? '<i>¡appa! GIFT</i>' : ''}</div>`).join('')}<div class="ml-card ml-peek"></div></div>`;
 
   const SCREENS = {
     home(hl) {
-      if (hl === 'home2') return `<div class="scr scr-white">${shot('home-old.jpg',
-        slot('home1', 'left:5.25%;top:9.80%;width:88.75%;height:21.03%', 'r8') +
-        slot('home2', 'left:5.25%;top:73.21%;width:88.75%;height:9.93%', 'r8 hl'))}${BAR('#fff')}${HI}</div>`;
-      return `<div class="scr scr-white">${shot('home.jpg', HOLA + slot('home1', HOME_MAIN, 'r12' + (hl === 'home1' ? ' hl' : '')))}${BAR('#fff')}${HI}</div>`;
+      return `<div class="scr ui-scr">${SB()}<div class="ui ui-home${hl === 'home2' ? ' is-scrolled' : ''}"><div class="ui-body">${homeBody(hl)}</div></div>${tabbar('home')}${HI}</div>`;
     },
     popup() {
       const mine = !!state.pieces.popup;
-      return `<div class="scr scr-white">${shot('home.jpg', HOLA + slot('home1', HOME_MAIN, 'r12'))}${BAR('#fff')}
+      return `<div class="scr ui-scr">${SB()}<div class="ui ui-home"><div class="ui-body">${homeBody('')}</div></div>${tabbar('home')}
         <div class="dim"><div class="modal">
           ${slot('popup', 'position:relative;left:auto;top:auto;width:100%;aspect-ratio:960/1398', 'r0')}
           ${mine ? '<span class="modal-x">✕</span>' : ''}
@@ -125,13 +141,41 @@
         </div></div>${HI}</div>`;
     },
     mall() {
-      return `<div class="scr scr-white">${shot('perfil.jpg', slot('mall', 'left:5.6%;top:12.06%;width:88.8%;height:12.84%', 'r6 hl'))}${BAR('#613089', true)}${HI}</div>`;
+
+      return `<div class="scr ui-scr ui-purple">${SB(true)}<div class="ui ui-mall">
+        <div class="ml-hd"><span class="ui-back">${svg.back}</span><span class="ml-logo"><img src="assets/ui/abasto.png" alt=""></span><b>Abasto Shopping</b><span class="ml-fav">${svg.heart}</span></div>
+        <div class="ml-sheet">
+          ${R('mall', '686/196', 'r-ui3 hl')}
+          <div class="ui-sec"><b>Descuentos con ¡appa!</b><span>Ver más ›</span></div>
+          ${dCards([['brioche', 'Brioche Dorée', '30 % OFF', 'Válido en toda la tienda', false], ['b2', 'Natura', '20 % OFF', 'Locales adheridos', true]])}
+          <div class="ui-sec"><b>Marcas destacadas</b><span>Ver más ›</span></div>
+          <div class="ml-brands">${[1, 2, 3, 4, 5].map(i => `<img src="assets/ui/b${i}.png" alt="">`).join('')}</div>
+        </div></div>${tabbar('home')}${HI}</div>`;
     },
     benef() {
-      return `<div class="scr scr-white">${shot('beneficios.jpg', slot('benef', 'left:3.5%;top:5.84%;width:87.2%;height:21.51%', 'r10 hl'))}${BAR('#fff')}${tabbar('ben')}${HI}</div>`;
+      const rows = [['l-abasto', 'Abasto Shopping', '2x1 en cines', 'Válido de lunes a jueves'], ['l-e', 'Alto Palermo', '1 h gratis de parking', 'De 8 a 13 h'], ['l-abasto', 'Abasto Shopping', '15% OFF en gastronomía', 'Locales adheridos']]
+        .map(r => `<div class="bn-row"><img src="assets/ui/${r[0]}.png" alt=""><div><small>${r[1]}</small><b>${r[2]}</b><em>${r[3]}</em></div><span>Ver más ⌄</span></div>`).join('');
+      return `<div class="scr ui-scr">${SB()}<div class="ui ui-white">
+        <div class="ui-hd"><span class="ui-back">${svg.back}</span><b>Beneficios</b></div>
+        <div class="bn-car">${R('benef', '1200/610', 'r-ui hl')}<span class="bn-peek"></span></div>
+        <div class="bn-dots"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="bn-list">${rows}</div>
+        </div>${tabbar('ben')}${HI}</div>`;
     },
     desc() {
-      return `<div class="scr scr-white">${shot('descuentos.jpg', slot('desc', 'left:5.1%;top:9.13%;width:89.6%;height:25.52%', 'r10 hl'))}${BAR('#fff')}${HI}</div>`;
+      return `<div class="scr ui-scr">${SB()}<div class="ui ui-white">
+        <div class="ui-hd"><span class="ui-back">${svg.back}</span><b>Descuentos</b></div>
+        <div class="ds-ban">${R('desc', '1200/610', 'r-ui hl')}</div>
+        <div class="ds-chips"><span class="on">Todos</span><span>Destacados</span><span>Hombre</span><span>Mujer</span></div>
+        <div class="ui-sec ui-sec-l"><b>Destacados</b></div>
+        <div class="ml-cards ds-cards">
+          <div class="ml-card"><img src="assets/ui/yagmour.png" alt=""><small>Yagmour</small><b>15 % OFF</b><em>Distrito Arcos</em></div>
+          <div class="ml-card"><img src="assets/ui/helena.png" alt=""><small>HELENA SPIRIT OF…</small><b>15 % OFF</b><em>Alto Palermo</em><i>¡appa! GIFT</i></div>
+          <div class="ml-card ml-peek"></div>
+        </div>
+        <div class="ui-sec ui-sec-l"><b>Hombre</b></div>
+        <div class="ds-cards">${dCards([['b3', 'Dash Deportes', '20 % OFF', 'Alto Avellaneda', true], ['b4', 'Dexter', '10 % OFF', 'Abasto Shopping', false]])}</div>
+        </div>${tabbar('home')}${HI}</div>`;
     },
     parking() {
       return `<div class="scr"><div class="tp">${SB(false, '9:41')}
@@ -154,7 +198,15 @@
         </div>${HI}</div>`;
     },
     mail() {
-      return `<div class="scr">${shot('mail.jpg', slot('mail', 'left:6.7%;top:33.94%;width:86.7%;height:51.02%', 'mail-slot'))}${BAR('rgb(235,238,243)')}${HI}</div>`;
+      return `<div class="scr ui-scr">${SB()}<div class="ui ui-white ui-mail">
+        <div class="mx-nav"><span class="ui-back">${svg.back}</span><span>Recibidos</span></div>
+        <h6 class="mx-subj">Especial San Valentín 💚</h6>
+        <div class="mx-from"><img src="assets/img/app-icon.png" alt=""><div><b>¡appa!</b><small>para mí</small></div><span>12 feb</span></div>
+        <div class="mx-body"><div class="mx-wrap"><img class="mx-logo" src="assets/img/logo-appa-mono-white.png" alt="¡appa!">
+          ${R('mail', '620/733', 'mail-slot')}
+          <p>Beneficio exclusivo para usuarios de ¡appa! · Aplican TyC</p></div></div>
+        <div class="mx-bar"><span>${svg.ret}Responder</span><span>${svg.fwd}Reenviar</span></div>
+        </div>${HI}</div>`;
     }
   };
   const screenFor = { popup: 'popup', home1: 'home', home2: 'home', mall: 'mall', benef: 'benef', desc: 'desc', parking: 'parking', push: 'push', mail: 'mail' };
