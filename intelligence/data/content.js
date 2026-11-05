@@ -15,7 +15,7 @@ window.APPA_CONTENT = {
   ],
 
   hero: {
-    eyebrow: "Agente de IA privado para empresas",
+    eyebrow: "IA privada: usala sin compartir tus datos",
     title: "Hablá con tu **negocio.**",
     subtitle:
       "Un agente de IA privado, conectado a los datos de tu empresa, que responde en segundos.",
@@ -68,6 +68,21 @@ window.APPA_CONTENT = {
         followup: "¿Querés que calcule cuánto reponer?"
       }
     ]
+  },
+
+  // Sección "Usá IA sin regalar tu fórmula" (va justo después del hero)
+  privacy: {
+    eyebrow: "La traba",
+    title: "Muchas empresas no usan IA para no regalar su **fórmula.**",
+    text:
+      "Tienen miedo de que sus datos, sus clientes y su forma de hacer negocios terminen en manos de otros o entrenando la IA de un tercero. Y está bien cuidarlos.",
+    statement: "No te prives de la IA. Con ¡appa! Intelligence la usás **sin compartir nada.**",
+    points: [
+      { icon: "lock", title: "Tus datos no salen de tu empresa", text: "Red privada, servidor propio e IA local." },
+      { icon: "shield", title: "Tu fórmula sigue siendo tuya", text: "Nada de lo que preguntás entrena modelos de terceros." },
+      { icon: "role", title: "Cada uno ve lo suyo", text: "Permisos por rol, como en tus sistemas." }
+    ],
+    cta: "Ver cómo protegemos tus datos"
   },
 
   problem: {
@@ -138,7 +153,7 @@ window.APPA_CONTENT = {
     eyebrow: "Seguridad",
     title: "Tu IA. Tus datos. Tus reglas.",
     subtitle:
-      "¡appa! Intelligence funciona dentro de tu empresa. Tus datos no salen, no se pueden robar y no entrenan modelos de terceros.",
+      "¡appa! Intelligence funciona dentro de tu empresa. Tus datos y tu fórmula no salen, no se pueden robar y no entrenan modelos de terceros.",
     points: [
       { icon: "network", title: "Red privada", text: "Todo funciona dentro de una red privada de tu empresa." },
       { icon: "server", title: "Servidor propio e IA local", text: "El modelo corre en un servidor propio, no en la nube de otro." },

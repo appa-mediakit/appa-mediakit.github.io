@@ -186,6 +186,21 @@
       );
     },
 
+    "privacy.points": function () {
+      return C.privacy.points
+        .map(function (p) {
+          return (
+            '<li><span class="privacy-icon">' + icon(p.icon) + "</span>" +
+            "<div><strong>" + esc(p.title) + "</strong><p>" + esc(p.text) + "</p></div></li>"
+          );
+        })
+        .join("");
+    },
+
+    "privacy.ctaLink": function () {
+      return esc(C.privacy.cta) + " " + icon("arrow");
+    },
+
     "why.items": function () {
       return C.why.items
         .map(function (w, i) {
