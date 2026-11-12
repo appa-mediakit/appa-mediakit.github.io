@@ -12,3 +12,6 @@ Web estática del Media Kit de ¡appa! ADS: audiencia, simulador de formatos con
 Se publica con GitHub Pages desde la rama `main` (repositorio `appa-mediakit.github.io`): cada push a `main` actualiza la web.
 
 También está lista para Netlify (`netlify.toml`, publish directory `.`) si en algún momento se quiere usar un dominio de Netlify.
+
+## Versión en inglés
+`/en/` se genera con `python3 _tools/build_en.py` a partir de `index.html` y `app.js`. Después de cambiar la versión en español, correr el script y, si avisa de textos no encontrados, actualizar su lista de traducciones.
